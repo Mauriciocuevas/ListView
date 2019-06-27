@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using Practica.ViewModels;
+using Practica.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,8 +12,10 @@ namespace Practica
         public App()
         {
             InitializeComponent();
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.Lands = new PaisesViewModel();
 
-            MainPage = new MainPage();
+            this.MainPage = new NavigationPage(new PaisPage());
         }
 
         protected override void OnStart()
@@ -30,3 +34,4 @@ namespace Practica
         }
     }
 }
+
